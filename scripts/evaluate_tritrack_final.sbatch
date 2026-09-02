@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=tritrack-final-val
-#SBATCH --partition=hp_4090
+#SBATCH --partition=gpu_4090
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
