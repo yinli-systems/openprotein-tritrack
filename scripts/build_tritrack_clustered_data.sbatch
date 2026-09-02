@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=32
+#SBATCH --cpus-per-task=6
 #SBATCH --time=06:00:00
 #SBATCH --output=/ssd/scxi253/pretraining2/logs/tritrack-data-v1-%j.out
 #SBATCH --error=/ssd/scxi253/pretraining2/logs/tritrack-data-v1-%j.err
