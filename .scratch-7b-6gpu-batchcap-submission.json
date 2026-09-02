@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "submitted",
+  "evidence_level": "SCRATCH_6GPU_BATCHCAP_BENCHMARK_SUBMISSION",
+  "created_at_utc": "2026-08-26T02:28:19Z",
+  "slurm_job_id": "1472327",
+  "source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/b5ba6573b5c33664bf54edceee421418c5a04a415d64dcc1914b5215bc9dbf4a",
+  "source_snapshot_sha256": "b5ba6573b5c33664bf54edceee421418c5a04a415d64dcc1914b5215bc9dbf4a",
+  "launcher": {
+    "path": "scripts/benchmark_scratch_7b_6gpu_batchcap.sbatch",
+    "sha256": "6510c6279af3d742e28fe7c3667d2aa591e4d92f5ecf8f2d72101fccd893ecdd"
+  },
+  "selector": {
+    "path": "scripts/select_scratch_7b_6gpu_batchcap.py",
+    "sha256": "d0739baf5ca8156ef8246a079c0ae7d820ec5d69474c0f7a6502fb7f6b8f0533"
+  },
+  "selection_policy": {
+    "path": "/data/run01/scxi253/pretraining2-archive/receipts/scratch-7b-6gpu-batchcap-selection-policy.json",
+    "sha256": "12503d46c77a05b8b3318be903f576b8286dcaed47e893cb3c7bdf96b0b70bc7"
+  },
+  "resources": {
+    "partition": "gpu_5090",
+    "qos": "gpugpu",
+    "nodes": 1,
+    "gpus_per_node": 6,
+    "cpus": 48,
+    "time_limit": "01:30:00"
+  },
+  "initial_scheduler_state": {
+    "state": "PENDING",
+    "reason": "Priority",
+    "runtime": "00:00:00",
+    "scheduler_estimated_start": "2026-09-18T10:23:16",
+    "public_gpu_5090_free_gpus": 5,
+    "single_node_six_gpu_placements": 0
+  },
+  "formal_training_submitted": false,
+  "test_data_accessed": false,
+  "proteingym_accessed": false,
+  "claim_boundary": "This records submission of the focused six-GPU efficiency benchmark only; it is not benchmark completion, formal pretraining, validation, or model-quality evidence."
+}

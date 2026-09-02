@@ -1,0 +1,57 @@
+{
+  "name": "ProteinGym DMS substitution benchmark",
+  "publisher": "OATML and Marks Lab",
+  "version": "v1.3",
+  "project_license": "MIT",
+  "repository": "https://github.com/OATML-Markslab/ProteinGym",
+  "download_root": "https://marks.hms.harvard.edu/proteingym/ProteinGym_v1.3/",
+  "reference_revision": "PG_v1.3",
+  "reference_file": "DMS_substitutions.reference.csv",
+  "reference_file_bytes": 208734,
+  "reference_file_sha256": "a8f498011532a74aa9fe556a50555a75e928c5837d19c06a87592ae04049b308",
+  "reference_source_url": "https://cdn.jsdelivr.net/gh/OATML-Markslab/ProteinGym@PG_v1.3/reference_files/DMS_substitutions.csv",
+  "assay_archive": "DMS_ProteinGym_substitutions.zip",
+  "assay_archive_bytes": 43021128,
+  "assay_archive_sha256": "3a83766254ac9ac9984ec25cb73c6e010ea4418f5e35f143933e6b6e6473b921",
+  "assay_archive_http_etag": "2907348-6329ff6970941",
+  "assay_archive_last_modified": "2025-04-13T02:47:58Z",
+  "official_score_archive": "zero_shot_substitutions_scores.zip",
+  "official_score_archive_bytes": 1911045703,
+  "official_score_archive_sha256": "3fd7cdb5e78f1d43cabfabfeb6578c252b63af23ba2ab44db0094dc3a42de36d",
+  "official_score_archive_http_etag": "71e83e47-633cd6a03f0f6",
+  "official_score_archive_last_modified": "2025-04-28T02:26:40Z",
+  "http_metadata_policy": "ETags and Last-Modified values are recorded as retrieval metadata, not content checksums.",
+  "assay_archive_retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-22T22:14:50Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/proteingym/v1.3/DMS_ProteinGym_substitutions.zip",
+    "observed_bytes": 43021128,
+    "observed_sha256": "3a83766254ac9ac9984ec25cb73c6e010ea4418f5e35f143933e6b6e6473b921",
+    "rows_accessed": false,
+    "archive_listing_accessed": false
+  },
+  "reference_file_retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-22T23:01:39Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/proteingym/v1.3/DMS_substitutions.reference.csv",
+    "observed_bytes": 208734,
+    "observed_sha256": "a8f498011532a74aa9fe556a50555a75e928c5837d19c06a87592ae04049b308",
+    "rows_accessed": false
+  },
+  "official_score_archive_retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-23T03:37:32Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/proteingym/v1.3/zero_shot_substitutions_scores.zip",
+    "observed_bytes": 1911045703,
+    "observed_sha256": "3fd7cdb5e78f1d43cabfabfeb6578c252b63af23ba2ab44db0094dc3a42de36d",
+    "retrieval_method": "114 deterministic 16 MiB HTTP range chunks with exact Content-Range and byte-count checks, followed by ordered assembly and independent full-file SHA-256 verification",
+    "rows_accessed": false,
+    "archive_listing_accessed": false
+  },
+  "frozen_policy": "Archives may be downloaded and hashed before checkpoint selection, but assay rows, labels, and official score rows remain unopened until the checkpoint and evaluator are sealed.",
+  "primary_metric": "Spearman correlation macro-averaged by UniProt ID and then selection type",
+  "frozen_evaluation_manifest_sha256": "3e518d343fe1ef9d9d0b5383bfaa990c643dfbb52486ad90326d47a6048fe3b7",
+  "assay_metric_policy": "Spearman rounded to three decimals before UniProt and selection-type aggregation, matching the official ProteinGym performance script",
+  "superiority_policy": "10000-sample seed-1701 paired bootstrap over UniProt-selection units within selection type; every required candidate-minus-baseline 95% lower bound must be at least zero",
+  "required_baselines": [
+    "ESM2-15B",
+    "ESMC-6B-local"
+  ]
+}

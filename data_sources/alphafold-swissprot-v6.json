@@ -1,0 +1,21 @@
+{
+  "name": "AlphaFold DB Swiss-Prot structures",
+  "publisher": "Google DeepMind and EMBL-EBI",
+  "dataset_version": "v6",
+  "observed_last_modified": "2025-08-24T11:07:09Z",
+  "license": "CC BY 4.0",
+  "license_url": "https://alphafold.ebi.ac.uk/assets/License-Disclaimer.pdf",
+  "downloads_url": "https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/",
+  "pdb_tar_url": "https://ftp.ebi.ac.uk/pub/databases/alphafold/latest/swissprot_pdb_v6.tar",
+  "pdb_tar_bytes": 28580050944,
+  "pdb_tar_sha256": "30873553b5f9fb5499be24ade2ec7f0fdbae570dda15237c2dbe1096ecda1eee",
+  "observed_http_etag": "6a780f800-63d1a70ab9140",
+  "provenance_note": "The server ETag is recorded as HTTP metadata, not treated as a content checksum.",
+  "retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-22T23:00:45Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/alphafold/v6/swissprot_pdb_v6.tar",
+    "observed_bytes": 28580050944,
+    "observed_sha256": "30873553b5f9fb5499be24ade2ec7f0fdbae570dda15237c2dbe1096ecda1eee",
+    "tar_list_test": "passed"
+  }
+}

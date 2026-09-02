@@ -1,0 +1,21 @@
+{
+  "name": "tiny-recovery",
+  "model_config": "configs/model/tiny.json",
+  "tokenizer_json": "tests/fixtures/tiny_tokenizer.json",
+  "train_glob": "tests/fixtures/train/*.csv",
+  "output_dir": "artifacts/tiny-recovery",
+  "sequence_length": 16,
+  "micro_batch_size": 2,
+  "gradient_accumulation_steps": 2,
+  "max_steps": 4,
+  "learning_rate": 0.001,
+  "min_learning_rate": 0.0001,
+  "warmup_steps": 1,
+  "weight_decay": 0.01,
+  "max_grad_norm": 1.0,
+  "mlm_probability": 0.3,
+  "seed": 123,
+  "log_every": 1,
+  "checkpoint_every": 2,
+  "precision": "fp32"
+}

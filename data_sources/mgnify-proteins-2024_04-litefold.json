@@ -1,0 +1,46 @@
+{
+  "name": "MGnify Proteins MGnify90 cluster representatives",
+  "publisher": "EMBL-EBI",
+  "release": "2024_04",
+  "license": "CC0 1.0",
+  "license_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/2024_04/LICENSE",
+  "readme_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/2024_04/README.txt",
+  "md5_manifest_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/2024_04/md5sum.txt",
+  "fasta_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/2024_04/mgy_clusters.fa.gz",
+  "fasta_bytes": 79301981114,
+  "fasta_md5": "c7e812f9542d48cf425c5329b8571e68",
+  "cluster_identity": 0.9,
+  "cluster_representatives": 717738164,
+  "cluster_representative_residues": 121126699551,
+  "recommended_selection_basis_points": 5000,
+  "mirror_transport": {
+    "provider": "Hugging Face",
+    "repo_id": "LiteFold/Mgnify",
+    "revision": "42712c93c6995a75f6f1d89931f95ddd78567b30",
+    "path_prefix": "sequences/sequence_mgnify_current_release_mgy_clusters.fa.gz",
+    "format": "fasta_zstd_shards",
+    "shards": 717,
+    "bytes": 75096691452,
+    "distribution_license": "CC BY 4.0",
+    "repository_url": "https://huggingface.co/datasets/LiteFold/Mgnify"
+  },
+  "mirror_semantic_audit": {
+    "records": 716738164,
+    "residues": 120943014900,
+    "record_shortfall_vs_official": 1000000,
+    "residue_shortfall_vs_official": 183684651,
+    "disposition": "REJECTED_AS_COMPLETE_FORMAL_SOURCE"
+  },
+  "official_prefix_audit": {
+    "records": 1000000,
+    "residues": 183684651,
+    "first_accession": "MGYP003125700799",
+    "last_accession": "MGYP006416764359",
+    "next_accession": "MGYP004618177781",
+    "next_length": 134,
+    "next_sequence_sha256": "b1c417bad44d6ffb895f846497e5c3dc3e9bc6e6d89b557997da6ba73d662813",
+    "mirror_boundary_match": true,
+    "evidence_level": "SOURCE_DIAGNOSIS_NOT_COMPLETE_CORPUS"
+  },
+  "status": "PINNED_MIRROR_BYTES_VERIFIED_SEMANTICALLY_INCOMPLETE_REJECTED"
+}

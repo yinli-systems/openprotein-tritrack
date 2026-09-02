@@ -1,0 +1,32 @@
+{
+  "name": "swissprot-sequence-text-step10000-from-sequence-step20000",
+  "task": "sequence_text",
+  "model_config": "configs/model/openprotein-7b.json",
+  "model_artifact_manifest": "/ssd/scxi253/pretraining2/manifests/esmc-6b-local-snapshot.json",
+  "tokenizer_json": "/ssd/scxi253/esmfold2/models/Biohub_ESMC-6B/tokenizer.json",
+  "text_tokenizer_model": "/ssd/scxi253/pretraining2/data/processed/text-tokenizer-swissprot-2026_02/tokenizer.model",
+  "train_glob": "/ssd/scxi253/pretraining2/data/processed/uniref50-swissprot-2026_02/train/*.csv",
+  "data_manifest": "/ssd/scxi253/pretraining2/data/processed/uniref50-swissprot-2026_02/manifest.json",
+  "output_dir": "/ssd/scxi253/pretraining2/runs/swissprot-sequence-text-step10000-from-sequence-step20000",
+  "sequence_length": 128,
+  "text_length": 128,
+  "micro_batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "max_steps": 10000,
+  "learning_rate": 0.00002,
+  "min_learning_rate": 0.000002,
+  "warmup_steps": 100,
+  "weight_decay": 0.01,
+  "max_grad_norm": 1.0,
+  "mlm_probability": 0.15,
+  "attention_policy": "prefix_lm",
+  "loss_weights": {
+    "protein_mlm": 1.0,
+    "text_lm": 0.5,
+    "contrastive": 0.1
+  },
+  "seed": 1701,
+  "log_every": 10,
+  "checkpoint_every": 1000,
+  "precision": "bf16"
+}

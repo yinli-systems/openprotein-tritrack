@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "predeclared_repair",
+  "evidence_level": "SCRATCH_CONTINUATION_POLICY_REPAIR",
+  "created_at_utc": "2026-08-25T03:07:44Z",
+  "supersedes_policy_sha256": "a39ba33494d6b64ba89a272b1c1a9174c3f058e6a7883eaa400dee3cf7f82c36",
+  "failed_audit_job": {
+    "slurm_job_id": "1465237",
+    "state": "FAILED",
+    "exit_code": "2:0",
+    "cause": "Slurm executes a copied sbatch file below /var/spool/slurmd, so deriving the operations root from BASH_SOURCE selected /var/spool/slurmd instead of the immutable operations snapshot."
+  },
+  "repair": {
+    "operations_root_contract": "OPS_DIR is required, canonicalized, constrained to /ssd/scxi253/pretraining2/source-snapshots/<64 lowercase hex>, and required to be read-only.",
+    "recursive_audit_contract": "Every successor audit submission explicitly exports OPS_DIR and all trainer, audit, and policy hashes.",
+    "training_checkpoint_changed": false,
+    "trainer_source_changed": false,
+    "training_contract_changed": false
+  },
+  "global_training_contract": {
+    "target_tokens": 50000000000,
+    "learning_rate_schedule_end_step": 260000,
+    "segment_size_steps": 5000,
+    "trainer_source_snapshot_sha256": "efb2df4391504bed59822a36972a2644d4c03e04800bbad4483a3549fa84aa91",
+    "trainer_subtree_sha256": "e4e2ed8b20be773618c40ce240193d7fa29f7d5e191490a7e9bc23613e172c84",
+    "train_config_sha256": "209e42f8a1a07f11c28dd49e2e40bc034d24b2f1511f41f97db28a5c3af0c235"
+  },
+  "operations": {
+    "operations_source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/f50f254cfb4d59c4bd82887f5c2f585e758da7b3b2f726691e03e6ddedb5a1d7",
+    "operations_source_snapshot_sha256": "f50f254cfb4d59c4bd82887f5c2f585e758da7b3b2f726691e03e6ddedb5a1d7",
+    "audit_script_sha256": "5c31dd7e182bf582716e31a8b5049c65bb0ae6e495f3c077e477efa5ee59986f",
+    "audit_sbatch_sha256": "c23002e9c256566fe1575956eca169d157308c33de7567523001707a1b274589",
+    "trainer_sbatch_sha256": "75e54dc169e896e14b205b155e338f0a96464a8ac24fd4fdaae1882560767d49"
+  },
+  "recovery_target": {
+    "completed_training_job_id": "1465137",
+    "segment_start_step": 0,
+    "segment_end_step": 5000
+  },
+  "gates": {
+    "local_focused_tests": "4 passed",
+    "remote_focused_tests": "4 passed",
+    "remote_full_tests": "85 passed",
+    "shell_syntax_check": true,
+    "operations_source_tree_digest_verified": true,
+    "operations_source_snapshot_read_only": true
+  },
+  "claim_boundary": "Operational path repair and continuation policy only; not training completion, validation, quality, or benchmark evidence.",
+  "test_data_accessed": false,
+  "proteingym_access_permitted": false
+}

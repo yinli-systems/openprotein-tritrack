@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "submitted",
+  "evidence_level": "SCRATCH_6GPU_TAILFILL_BENCHMARK_SUBMISSION",
+  "created_at_utc": "2026-08-26T17:05:14Z",
+  "slurm_job_id": "1473958",
+  "source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/d5109efc2c688733617f9147bbcac26990aa6963c0ca2da2b59368fb51d18486",
+  "source_snapshot_sha256": "d5109efc2c688733617f9147bbcac26990aa6963c0ca2da2b59368fb51d18486",
+  "launcher_sha256": "fcaa427ad9f7eb1460ab8c257b0ebab2fce2bf6054ecb0c8af3ca93fc7c12465",
+  "selection_policy": {
+    "path": "/data/run01/scxi253/pretraining2-archive/receipts/scratch-7b-6gpu-tailfill-selection-policy.json",
+    "sha256": "96d445f492a4539bd6e3e99fc3e3dcfd172081dc08263ca99ed14ee90e9e987a"
+  },
+  "resources": {
+    "partition": "gpu_5090",
+    "qos": "gpugpu",
+    "nodes": 1,
+    "gpus_per_node": 6,
+    "cpus": 48,
+    "time_limit": "01:00:00"
+  },
+  "initial_scheduler_state": {
+    "state": "PENDING",
+    "reason": "Priority",
+    "runtime": "00:00:00",
+    "scheduler_estimated_start": "2026-09-06T01:00:32",
+    "public_gpu_5090_free_gpus": 0,
+    "single_node_six_gpu_placements": 0
+  },
+  "formal_training_submitted": false,
+  "test_data_accessed": false,
+  "proteingym_accessed": false,
+  "claim_boundary": "This records submission of the focused six-GPU tail-fill benchmark only; it is not benchmark completion, formal pretraining, validation, or model-quality evidence."
+}

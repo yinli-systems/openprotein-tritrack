@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "predeclared",
+  "evidence_level": "SCRATCH_6GPU_PREFETCH_SELECTION_POLICY",
+  "created_at_utc": "2026-08-27T06:19:07Z",
+  "source_snapshot_sha256": "1cf0c8384186d125411de4792111878cb55c8d554fef74c90fdae1140ae3d1f9",
+  "selector": {
+    "path": "scripts/select_scratch_7b_6gpu_batchcap.py",
+    "sha256": "d0739baf5ca8156ef8246a079c0ae7d820ec5d69474c0f7a6502fb7f6b8f0533"
+  },
+  "launcher": {
+    "path": "scripts/benchmark_scratch_7b_6gpu_prefetch.sbatch",
+    "sha256": "967d2960f7be10092bbee553d82a54fc0e4092d1d7f388083755a5824f34efe4"
+  },
+  "implementation": {
+    "path": "src/openprotein/data/packed.py",
+    "sha256": "69e4be1bbb3bf7ce20ba66b3da2ee32bfa453463363e0b8adb0588f9c6b18a61",
+    "behavior": "read and sort the next deterministic lookahead window on one background CPU thread while the GPU consumes the current window",
+    "checkpoint_contract": "materialize the background future and serialize both current and prefetched pools with the exact advanced cursor",
+    "topology_migration_contract": "include both current and prefetched old-rank pools in exact unconsumed-record repartition",
+    "remote_tests": "90 passed, 15 warnings"
+  },
+  "remediation_basis": {
+    "parent_policy_sha256": "96d445f492a4539bd6e3e99fc3e3dcfd172081dc08263ca99ed14ee90e9e987a",
+    "parent_benchmark_job_id": "1473958",
+    "parent_job_state": "FAILED",
+    "parent_job_exit_code": "1:0",
+    "parent_selection_status": "no_selection",
+    "parent_best_candidate_max_micro_batch_size": 384,
+    "parent_best_candidate_median_tokens_per_second": 19010.858781364623,
+    "parent_best_candidate_p10_tokens_per_second": 16743.590111799327,
+    "parent_best_candidate_p10_to_median_ratio": 0.8807382298906042,
+    "diagnosis": "tail token capacity improved, but synchronous next-window reads still delayed periodic boundary steps",
+    "permitted_change": "background-prefetch one exact next window; compare max_micro_batch_size 256 and 384 only"
+  },
+  "hardware_contract": {
+    "nodes": 1,
+    "gpu_model": "NVIDIA GeForce RTX 5090",
+    "gpus": 6,
+    "precision": "bf16",
+    "fsdp_shard_size": 6,
+    "activation_checkpointing": true,
+    "fsdp_reshard_after_forward": true
+  },
+  "optimizer_step_contract": {
+    "reference_world_size": 8,
+    "reference_micro_batch_token_budget": 32768,
+    "reference_gradient_accumulation_steps": 1,
+    "reference_theoretical_global_token_capacity": 262144,
+    "candidate_micro_batch_token_budget": 14563,
+    "candidate_gradient_accumulation_steps": 3,
+    "candidate_theoretical_global_token_capacity": 262134,
+    "capacity_absolute_difference": 10
+  },
+  "candidates": [
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-prefetch-maxb256-60.json",
+      "sha256": "1d7edbb84f0d190b70cdce8f05bb2c980a4205bd61d0e3644a4d8ef492895a3a",
+      "max_micro_batch_size": 256,
+      "theoretical_global_token_capacity": 262134
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-prefetch-maxb384-60.json",
+      "sha256": "4cbfd0770ceb74e05a58bcc79b781d6882aff07598f3c70ea346932ee895fa67",
+      "max_micro_batch_size": 384,
+      "theoretical_global_token_capacity": 262134
+    }
+  ],
+  "candidate_gate": {
+    "receipt_status": "passed",
+    "evidence_level": "SCALE_TEST",
+    "step": 60,
+    "world_size": 6,
+    "parameter_count": 7065227297,
+    "gpu_name": "NVIDIA GeForce RTX 5090",
+    "source_snapshot_sha256": "1cf0c8384186d125411de4792111878cb55c8d554fef74c90fdae1140ae3d1f9",
+    "metrics_rows": 60,
+    "selection_step_range": [11, 60],
+    "minimum_mean_packing_efficiency": 0.9,
+    "maximum_peak_memory_mib": 31000,
+    "minimum_p10_to_median_ratio": 0.9,
+    "checkpoint_files_permitted": false
+  },
+  "selection_rule": {
+    "p10_definition": "nearest rank: sorted values at index ceil(0.10 * n) - 1",
+    "primary": "maximum median aggregate tokens_per_second over steps 11 through 60",
+    "stability_gate": "nearest-rank p10 tokens_per_second divided by median must be at least 0.9",
+    "tie_break_1": "maximum nearest-rank p10 aggregate tokens_per_second",
+    "tie_break_2": "minimum peak_memory_mib",
+    "minimum_passing_candidates": 1
+  },
+  "promotion_gate": {
+    "requires_parent_topology_migration_probe": true,
+    "parent_topology_migration_job_id": "1467754",
+    "parent_topology_migration_final_step": 5010,
+    "parent_topology_migration_status": "passed",
+    "parent_topology_migration_manifest_sha256": "77ffa37466a6461b51115a485e9ccf76bff371838d0e9dc12300e4cfac8f6f08",
+    "formal_training_submission_permitted_only_after_selection_status": "selected"
+  },
+  "claim_boundary": "Selects a six-GPU prefetched execution configuration by bounded throughput, stability, packing, and memory only. It is not pretraining, completion, validation, or model-quality evidence.",
+  "test_data_accessed": false,
+  "proteingym_access_permitted": false
+}

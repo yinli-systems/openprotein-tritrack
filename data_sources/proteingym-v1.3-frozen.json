@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "name": "ProteinGym v1.3 substitution benchmark with official ESM-2 15B scores",
+  "archive_protocol": "proteingym-v1.3-opaque-zip",
+  "dataset_root": "/ssd/scxi253/pretraining2/data/raw/proteingym/v1.3",
+  "reference_file": {
+    "path": "DMS_substitutions.reference.csv",
+    "bytes": 208734,
+    "sha256": "a8f498011532a74aa9fe556a50555a75e928c5837d19c06a87592ae04049b308"
+  },
+  "assay_archive": {
+    "path": "DMS_ProteinGym_substitutions.zip",
+    "bytes": 43021128,
+    "sha256": "3a83766254ac9ac9984ec25cb73c6e010ea4418f5e35f143933e6b6e6473b921"
+  },
+  "score_archive": {
+    "path": "zero_shot_substitutions_scores.zip",
+    "bytes": 1911045703,
+    "sha256": "3fd7cdb5e78f1d43cabfabfeb6578c252b63af23ba2ab44db0094dc3a42de36d"
+  },
+  "baselines": {
+    "ESM2-15B": {
+      "member_prefix": "ESM2/15B",
+      "score_column": "esm2_t48_15B_UR50D",
+      "directionality": 1.0
+    }
+  },
+  "primary_metric": "Spearman correlation averaged per UniProt ID within coarse selection type, then macro-averaged across coarse selection types",
+  "claim_gate": {
+    "required_baselines": [
+      "ESM2-15B",
+      "ESMC-6B-local"
+    ],
+    "minimum_margin": 0.0,
+    "paired_bootstrap_samples": 10000,
+    "paired_bootstrap_seed": 1701,
+    "minimum_paired_bootstrap_lower_bound": 0.0
+  },
+  "access_policy": "The three artifacts were downloaded and hashed without opening rows or ZIP listings. They may be opened only after a checkpoint and evaluator have been bound by an evaluation seal. Frozen results cannot be used for model selection."
+}

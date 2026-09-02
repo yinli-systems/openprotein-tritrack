@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "TorchProtein EnzymeCommission",
+  "publisher": "TorchDrug authors via Zenodo",
+  "version": "v1",
+  "published_date": "2022-06-08",
+  "doi": "10.5281/zenodo.6622158",
+  "record_url": "https://zenodo.org/records/6622158",
+  "download_url": "https://zenodo.org/records/6622158/files/EnzymeCommission.zip?download=1",
+  "retrieval_endpoint": "https://zenodo.org/api/records/6622158/files/EnzymeCommission.zip/content",
+  "bytes": 1034145814,
+  "md5": "33f799065f8ad75f87b709a87293bc65",
+  "sha256": "c124c7c52c89e8e9ec55cf354f0d084aa674a006646f6d74c714ecc9ee89b3eb",
+  "license": "not specified on the Zenodo record",
+  "distribution_policy": "evaluation-only local copy; do not redistribute without resolving upstream rights",
+  "upstream_implementations": {
+    "torchdrug_repository": "https://github.com/DeepGraphLearning/torchdrug",
+    "torchdrug_commit": "6066fbd82360abb5f270cba1eca560af01b8cc90",
+    "gearnet_repository": "https://github.com/DeepGraphLearning/GearNet",
+    "gearnet_commit": "28bf75f5dfb6cd7b9bf4394d153a87f69bddf1a6"
+  },
+  "protocol": "official train, validation, and public test splits with published 30, 40, 50, 70, and 95 percent train-test sequence-identity masks",
+  "retrieval_receipt": {
+    "retrieved_at_utc": "2026-09-02T15:38:06Z",
+    "method": "eight deterministic HTTP byte ranges resumed through the official Zenodo API content endpoint, followed by ordered assembly and independent full-file byte, MD5, and SHA-256 verification",
+    "observed_bytes": 1034145814,
+    "observed_md5": "33f799065f8ad75f87b709a87293bc65",
+    "observed_sha256": "c124c7c52c89e8e9ec55cf354f0d084aa674a006646f6d74c714ecc9ee89b3eb",
+    "archive_rows_accessed_during_retrieval": false,
+    "proteingym_rows_opened": false
+  }
+}

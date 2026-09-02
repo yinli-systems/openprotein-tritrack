@@ -1,0 +1,23 @@
+{
+  "name": "uniref50-2026-02-official-pilot",
+  "model_config": "configs/model/openprotein-7b.json",
+  "model_artifact_manifest": "/ssd/scxi253/pretraining2/manifests/esmc-6b-local-snapshot.json",
+  "tokenizer_json": "/ssd/scxi253/esmfold2/models/Biohub_ESMC-6B/tokenizer.json",
+  "train_glob": "/ssd/scxi253/pretraining2/data/processed/uniref50-2026_02/train/*.csv",
+  "data_manifest": "/ssd/scxi253/pretraining2/data/processed/uniref50-2026_02/manifest.json",
+  "output_dir": "/ssd/scxi253/pretraining2/runs/uniref50-2026-02-official-pilot",
+  "sequence_length": 256,
+  "micro_batch_size": 1,
+  "gradient_accumulation_steps": 8,
+  "max_steps": 100,
+  "learning_rate": 0.0001,
+  "min_learning_rate": 0.00001,
+  "warmup_steps": 50,
+  "weight_decay": 0.01,
+  "max_grad_norm": 1.0,
+  "mlm_probability": 0.15,
+  "seed": 1701,
+  "log_every": 1,
+  "checkpoint_every": 100,
+  "precision": "bf16"
+}

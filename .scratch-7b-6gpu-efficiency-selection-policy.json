@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "predeclared",
+  "evidence_level": "SCRATCH_6GPU_EFFICIENCY_SELECTION_POLICY",
+  "created_at_utc": "2026-08-25T05:15:35Z",
+  "benchmark_job_id": "1467754",
+  "source_snapshot_sha256": "17c8c9c1973420f6eff5b6a4804dab911b5b1cd5e08df59be5c53c5e1dceaae0",
+  "hardware_contract": {
+    "nodes": 1,
+    "gpu_model": "NVIDIA GeForce RTX 5090",
+    "gpus": 6,
+    "precision": "bf16",
+    "fsdp_shard_size": 6,
+    "activation_checkpointing": true
+  },
+  "optimizer_step_contract": {
+    "reference_world_size": 8,
+    "reference_micro_batch_token_budget": 32768,
+    "reference_gradient_accumulation_steps": 1,
+    "reference_theoretical_global_token_capacity": 262144,
+    "candidate_capacity_absolute_tolerance": 10
+  },
+  "candidates": [
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b43690-ga1-window4096-40.json",
+      "sha256": "b0c53a3d7526eeb9726c991285106fbf6f9d8c160ce4a9f460a0f509c7bd4bf9",
+      "micro_batch_token_budget": 43690,
+      "gradient_accumulation_steps": 1,
+      "fsdp_reshard_after_forward": true,
+      "theoretical_global_token_capacity": 262140
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b21845-ga2-window4096-40.json",
+      "sha256": "67ba0259bc6b331dd6affb2d8c45fe8b0ab7c26a75b472e6278de807696c69f8",
+      "micro_batch_token_budget": 21845,
+      "gradient_accumulation_steps": 2,
+      "fsdp_reshard_after_forward": true,
+      "theoretical_global_token_capacity": 262140
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b21845-ga2-window4096-noreshard-40.json",
+      "sha256": "b3a23f6d9a091961606d367279cbfdc2956998d3264cf1876327ef5a5759154c",
+      "micro_batch_token_budget": 21845,
+      "gradient_accumulation_steps": 2,
+      "fsdp_reshard_after_forward": false,
+      "theoretical_global_token_capacity": 262140
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-40.json",
+      "sha256": "ea1bf43e6f0c28d383a30ee8efccadc03616fbc9b08becebd2077ad4f0b5102c",
+      "micro_batch_token_budget": 14563,
+      "gradient_accumulation_steps": 3,
+      "fsdp_reshard_after_forward": true,
+      "theoretical_global_token_capacity": 262134
+    }
+  ],
+  "candidate_gate": {
+    "receipt_status": "passed",
+    "evidence_level": "SCALE_TEST",
+    "step": 40,
+    "world_size": 6,
+    "parameter_count": 7065227297,
+    "all_metrics_finite": true,
+    "metrics_rows": 40,
+    "selection_rows": "steps 11 through 40 inclusive",
+    "minimum_mean_packing_efficiency": 0.9,
+    "maximum_peak_memory_mib": 31000,
+    "checkpoint_files_permitted": false
+  },
+  "selection_rule": {
+    "primary": "maximum median aggregate tokens_per_second over selection rows",
+    "stability_gate": "p10 tokens_per_second must be at least 90 percent of the median",
+    "tie_break_1": "maximum p10 aggregate tokens_per_second",
+    "tie_break_2": "minimum peak_memory_mib",
+    "minimum_passing_candidates": 1
+  },
+  "topology_migration_probe": {
+    "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-topology-migration-probe-b14563-ga3-5010.json",
+    "sha256": "0114c1f380000a65ef272a4caeb90dc86ab27117889b6110e7c98ac814b89355",
+    "required_status": "passed",
+    "required_evidence_level": "SCALE_TEST",
+    "required_final_step": 5010,
+    "required_world_size": 6,
+    "required_resume_manifest_sha256": "77ffa37466a6461b51115a485e9ccf76bff371838d0e9dc12300e4cfac8f6f08",
+    "required_data_cursor_policy": "exact_unconsumed_path_cursor_repartition",
+    "checkpoint_files_permitted": false
+  },
+  "claim_boundary": "Selects a six-GPU execution configuration by bounded throughput and memory only. It is not pretraining, completion, validation, or model-quality evidence.",
+  "test_data_accessed": false,
+  "proteingym_access_permitted": false
+}

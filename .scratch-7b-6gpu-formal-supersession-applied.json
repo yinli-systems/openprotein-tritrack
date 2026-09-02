@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "applied",
+  "evidence_level": "SCRATCH_FORMAL_CHAIN_SUPERSESSION",
+  "created_at_utc": "2026-08-28T03:56:13Z",
+  "chain_policy_sha256": "0eec3b581b408f6916cedc50959ee73f08c32e3c67d24d511a2aca8ce5f66167",
+  "replacement_submission_receipt_sha256": "1ad2b39ac08c03b829c979373842cdf990afce7a02749f7afa9cc2e86f91175c",
+  "replacement": {
+    "training_job_id": "1480297",
+    "training_state_at_supersession": "PENDING",
+    "training_reason_at_supersession": "Priority",
+    "audit_job_id": "1480298",
+    "audit_state_at_supersession": "PENDING",
+    "audit_reason_at_supersession": "Dependency",
+    "world_size": 6
+  },
+  "superseded": [
+    {
+      "job_id": "1467474",
+      "prior_state": "PENDING",
+      "prior_reason": "JobHeldUser",
+      "runtime": "00:00:00",
+      "final_state": "CANCELLED by 1256"
+    },
+    {
+      "job_id": "1467475",
+      "prior_state": "PENDING",
+      "prior_reason": "Dependency",
+      "runtime": "00:00:00",
+      "final_state": "CANCELLED by 1256"
+    }
+  ],
+  "checkpoint_changed_by_supersession": false,
+  "training_started_at_supersession": false,
+  "claim_boundary": "Records scheduler-chain replacement only. The replacement six-GPU segment remained queued and no new training step had completed at this time.",
+  "test_data_accessed": false,
+  "proteingym_accessed": false
+}

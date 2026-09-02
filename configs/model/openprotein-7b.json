@@ -1,0 +1,23 @@
+{
+  "name": "openprotein-7b",
+  "protein_backbone": {
+    "kind": "esmc",
+    "model_path": "/ssd/scxi253/esmfold2/models/Biohub_ESMC-6B",
+    "parameter_count": 6352005184,
+    "vocab_size": 64,
+    "freeze": true
+  },
+  "hidden_size": 2560,
+  "num_attention_heads": 40,
+  "num_bridge_layers": 8,
+  "intermediate_size": 6912,
+  "text_vocab_size": 32768,
+  "max_sequence_length": 2048,
+  "max_text_length": 512,
+  "contrastive_dimension": 1024,
+  "geometry_rank": 256,
+  "distance_bins": 64,
+  "dropout": 0.0,
+  "residual_scale": 0.25,
+  "tie_text_embeddings": true
+}

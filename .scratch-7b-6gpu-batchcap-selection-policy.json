@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "predeclared",
+  "evidence_level": "SCRATCH_6GPU_BATCHCAP_SELECTION_POLICY",
+  "created_at_utc": "2026-08-26T02:26:00Z",
+  "source_snapshot_sha256": "b5ba6573b5c33664bf54edceee421418c5a04a415d64dcc1914b5215bc9dbf4a",
+  "selector": {
+    "path": "scripts/select_scratch_7b_6gpu_batchcap.py",
+    "sha256": "d0739baf5ca8156ef8246a079c0ae7d820ec5d69474c0f7a6502fb7f6b8f0533"
+  },
+  "launcher": {
+    "path": "scripts/benchmark_scratch_7b_6gpu_batchcap.sbatch",
+    "sha256": "6510c6279af3d742e28fe7c3667d2aa591e4d92f5ecf8f2d72101fccd893ecdd"
+  },
+  "remediation_basis": {
+    "parent_policy_sha256": "255d3ff06ad66a5fb9ba7570287d7f9863aa4191464f428fc7a54a409b5bd2dd",
+    "parent_benchmark_job_id": "1467754",
+    "parent_job_state": "COMPLETED",
+    "parent_job_exit_code": "0:0",
+    "parent_complete_candidate": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-40.json",
+    "parent_complete_candidate_median_tokens_per_second": 18956.588984175727,
+    "parent_complete_candidate_nearest_rank_p10_tokens_per_second": 16348.111466710587,
+    "parent_complete_candidate_p10_to_median_ratio": 0.8623973163292931,
+    "parent_complete_candidate_mean_packing_efficiency": 0.9635401643744201,
+    "parent_complete_candidate_peak_memory_mib": 26097.19287109375,
+    "parent_other_candidate_result": "three larger-token-budget candidates failed with CUDA out of memory",
+    "diagnosis": "max_micro_batch_size=256 underfilled short-sequence tail batches while preserving acceptable packing efficiency",
+    "permitted_change": "compare only max_micro_batch_size at fixed model, seed, data, token budget, accumulation, lookahead, sharding, and optimizer"
+  },
+  "hardware_contract": {
+    "nodes": 1,
+    "gpu_model": "NVIDIA GeForce RTX 5090",
+    "gpus": 6,
+    "precision": "bf16",
+    "fsdp_shard_size": 6,
+    "activation_checkpointing": true,
+    "fsdp_reshard_after_forward": true
+  },
+  "optimizer_step_contract": {
+    "reference_world_size": 8,
+    "reference_micro_batch_token_budget": 32768,
+    "reference_gradient_accumulation_steps": 1,
+    "reference_theoretical_global_token_capacity": 262144,
+    "candidate_micro_batch_token_budget": 14563,
+    "candidate_gradient_accumulation_steps": 3,
+    "candidate_theoretical_global_token_capacity": 262134,
+    "capacity_absolute_difference": 10
+  },
+  "candidates": [
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-maxb256-60.json",
+      "sha256": "b62feb3dfdd799ab395f1ae1b47d60a4c0450eeeb56261119a9e58d0145a5c46",
+      "max_micro_batch_size": 256,
+      "theoretical_global_token_capacity": 262134
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-maxb384-60.json",
+      "sha256": "c5bef8baf6ef0c14fee6445c00f145adbeb2d932ae875a1bf503dff91bd08842",
+      "max_micro_batch_size": 384,
+      "theoretical_global_token_capacity": 262134
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-maxb512-60.json",
+      "sha256": "0e7e86f272546f5f1fc1c43cf91f325e674f1fb4c0ed4a2eed791d3f595293c9",
+      "max_micro_batch_size": 512,
+      "theoretical_global_token_capacity": 262134
+    },
+    {
+      "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window4096-maxb768-60.json",
+      "sha256": "e85fde1c3f2098fdc1da78342f88e4acd35e5f36aec7d0e5c3ccb750fbe9c271",
+      "max_micro_batch_size": 768,
+      "theoretical_global_token_capacity": 262134
+    }
+  ],
+  "candidate_gate": {
+    "receipt_status": "passed",
+    "evidence_level": "SCALE_TEST",
+    "step": 60,
+    "world_size": 6,
+    "parameter_count": 7065227297,
+    "gpu_name": "NVIDIA GeForce RTX 5090",
+    "source_snapshot_sha256": "b5ba6573b5c33664bf54edceee421418c5a04a415d64dcc1914b5215bc9dbf4a",
+    "metrics_rows": 60,
+    "selection_step_range": [11, 60],
+    "minimum_mean_packing_efficiency": 0.9,
+    "maximum_peak_memory_mib": 31000,
+    "minimum_p10_to_median_ratio": 0.9,
+    "checkpoint_files_permitted": false
+  },
+  "selection_rule": {
+    "p10_definition": "nearest rank: sorted values at index ceil(0.10 * n) - 1",
+    "primary": "maximum median aggregate tokens_per_second over steps 11 through 60",
+    "stability_gate": "nearest-rank p10 tokens_per_second divided by median must be at least 0.9",
+    "tie_break_1": "maximum nearest-rank p10 aggregate tokens_per_second",
+    "tie_break_2": "minimum peak_memory_mib",
+    "minimum_passing_candidates": 1
+  },
+  "promotion_gate": {
+    "requires_parent_topology_migration_probe": true,
+    "parent_topology_migration_job_id": "1467754",
+    "parent_topology_migration_final_step": 5010,
+    "parent_topology_migration_status": "passed",
+    "parent_topology_migration_manifest_sha256": "77ffa37466a6461b51115a485e9ccf76bff371838d0e9dc12300e4cfac8f6f08",
+    "formal_training_submission_permitted_only_after_selection_status": "selected"
+  },
+  "claim_boundary": "Selects a six-GPU batch-cap execution configuration by bounded throughput, stability, packing, and memory only. It is not pretraining, completion, validation, or model-quality evidence.",
+  "test_data_accessed": false,
+  "proteingym_access_permitted": false
+}

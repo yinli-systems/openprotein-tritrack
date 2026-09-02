@@ -1,0 +1,24 @@
+{
+  "name": "openprotein-1b-multimodal",
+  "protein_backbone": {
+    "kind": "esm2",
+    "model_path": "/ssd/scxi253/pretraining2/models/facebook-esm2-t33-650m-ur50d",
+    "parameter_count": 651043254,
+    "vocab_size": 33,
+    "freeze": true
+  },
+  "hidden_size": 1280,
+  "num_attention_heads": 20,
+  "num_bridge_layers": 12,
+  "intermediate_size": 5120,
+  "text_vocab_size": 32768,
+  "max_sequence_length": 1024,
+  "max_text_length": 128,
+  "contrastive_dimension": 512,
+  "geometry_rank": 256,
+  "distance_bins": 64,
+  "dropout": 0.0,
+  "residual_scale": 0.2,
+  "tie_text_embeddings": true,
+  "structure_feature_dimension": 12
+}

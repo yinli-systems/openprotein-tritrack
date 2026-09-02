@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "candidate_steps": [1000, 5000, 10000],
+  "primary_metric": "minimum_text_lm_loss",
+  "tie_break": "earliest_checkpoint_step",
+  "max_sequence_loss_delta_from_initializer": 0.01,
+  "require_conditioning_ci_upper_below_zero": true,
+  "test_data_policy": "forbidden"
+}

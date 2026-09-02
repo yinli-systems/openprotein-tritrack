@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "selection_rule": "maximize post-warmup aggregate tokens per second subject to at least 15 percent physical GPU-memory headroom and successful exit",
+  "physical_gpu_memory_mib": 24564,
+  "sequence_length": 512,
+  "world_size": 4,
+  "candidates": [
+    {
+      "job_id": "1537405",
+      "micro_batch_size": 16,
+      "gradient_accumulation_steps": 2,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "peak_memory_mib": 13438.57568359375,
+      "post_warmup_aggregate_tokens_per_second": 37783.17261391861
+    },
+    {
+      "job_id": "1537422",
+      "micro_batch_size": 32,
+      "gradient_accumulation_steps": 1,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "peak_memory_mib": 21418.7412109375,
+      "post_warmup_aggregate_tokens_per_second": 38562.45393269937,
+      "rejected_reason": "12.8 percent physical-memory headroom is below the frozen 15 percent gate"
+    },
+    {
+      "job_id": "1537431",
+      "micro_batch_size": 24,
+      "gradient_accumulation_steps": 1,
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "peak_memory_mib": 17087.04638671875,
+      "post_warmup_aggregate_tokens_per_second": 43795.1035521542,
+      "physical_memory_headroom_fraction": 0.3044,
+      "selected": true
+    }
+  ],
+  "selected_config": "configs/train/multimodal-1b-ddp4-1btoken.json"
+}

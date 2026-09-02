@@ -1,0 +1,21 @@
+{
+  "name": "MGnify Proteins MGnify90 cluster representatives",
+  "publisher": "EMBL-EBI",
+  "release": "2026_07",
+  "release_date": "2026-07-10",
+  "license": "CC0 1.0",
+  "license_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/current_release/LICENSE",
+  "release_page_url": "https://www.ebi.ac.uk/metagenomics/proteins/",
+  "readme_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/current_release/README.md",
+  "stats_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/current_release/STATS.md",
+  "md5_manifest_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/current_release/md5sum.txt",
+  "fasta_url": "https://ftp.ebi.ac.uk/pub/databases/metagenomics/peptide_database/current_release/mgy_clusters.fa.gz",
+  "fasta_bytes": 168161316715,
+  "fasta_md5": "cd3ad0a9e9e5218ebbbc8c3a74f975ff",
+  "cluster_identity": 0.9,
+  "cluster_unidirectional_coverage": 0.9,
+  "cluster_representatives": 1661142385,
+  "cluster_representative_residues": 250711458083,
+  "retrieval_receipt": null,
+  "status": "OFFICIAL_METADATA_VERIFIED_NOT_DOWNLOADED"
+}

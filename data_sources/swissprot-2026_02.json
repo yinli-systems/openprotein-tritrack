@@ -1,0 +1,23 @@
+{
+  "name": "UniProtKB/Swiss-Prot",
+  "publisher": "UniProt Consortium",
+  "release": "2026_02",
+  "release_date": "2026-06-10",
+  "records": 575503,
+  "license": "CC BY 4.0",
+  "license_url": "https://www.uniprot.org/help/license",
+  "release_notes_url": "https://www.uniprot.org/help/2026-06-10-release",
+  "metalink_url": "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/RELEASE.metalink",
+  "dat_url": "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.dat.gz",
+  "dat_bytes": 699031150,
+  "dat_md5": "868b301a6ec93955f4e4355d579d8683",
+  "dat_sha256": "741bcb144f98b8d10f0369b145d562b6751bfd17c285e936553aeb9cb54ab592",
+  "retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-22T21:12:08Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/uniprot/2026_02/uniprot_sprot.dat.gz",
+    "observed_bytes": 699031150,
+    "observed_md5": "868b301a6ec93955f4e4355d579d8683",
+    "observed_sha256": "741bcb144f98b8d10f0369b145d562b6751bfd17c285e936553aeb9cb54ab592",
+    "gzip_test": "passed"
+  }
+}

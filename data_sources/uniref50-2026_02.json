@@ -1,0 +1,23 @@
+{
+  "name": "UniRef50",
+  "publisher": "UniProt Consortium",
+  "release": "2026_02",
+  "release_date": "2026-06-10",
+  "records": 38794121,
+  "license": "CC BY 4.0",
+  "license_url": "https://www.uniprot.org/help/license",
+  "release_notes_url": "https://ftp.uniprot.org/pub/databases/uniprot/current_release/relnotes.txt",
+  "metalink_url": "https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref50/RELEASE.metalink",
+  "fasta_url": "https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref50/uniref50.fasta.gz",
+  "fasta_bytes": 8770260598,
+  "fasta_md5": "3228886e9d749f050f60e9a0ce1f727d",
+  "fasta_sha256": "e44b7e22dd719346997a6ead032a44bb214cea3dd1793b843b4b7a51836b95f7",
+  "retrieval_receipt": {
+    "retrieved_at_utc": "2026-08-22T20:44:13Z",
+    "path": "/ssd/scxi253/pretraining2/data/raw/uniref/2026_02/uniref50.fasta.gz",
+    "observed_bytes": 8770260598,
+    "observed_md5": "3228886e9d749f050f60e9a0ce1f727d",
+    "observed_sha256": "e44b7e22dd719346997a6ead032a44bb214cea3dd1793b843b4b7a51836b95f7",
+    "gzip_test": "passed"
+  }
+}

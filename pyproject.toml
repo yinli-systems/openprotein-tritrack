@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openprotein"
+version = "0.1.0"
+description = "Evidence-gated, public-data protein and text foundation-model training stack"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "Apache-2.0"
+authors = [{name = "OpenProtein contributors"}]
+dependencies = [
+  "safetensors>=0.4",
+  "torch>=2.8",
+  "zstandard>=0.23",
+]
+
+[project.optional-dependencies]
+data = [
+  "numpy>=1.26",
+  "sentencepiece>=0.2.0",
+]
+dev = [
+  "pytest>=8.3",
+  "ruff>=0.12",
+]
+
+[project.scripts]
+openprotein-inspect = "openprotein.cli.inspect:main"
+openprotein-build-manifest = "openprotein.cli.build_manifest:main"
+openprotein-build-artifact-manifest = "openprotein.cli.build_artifact_manifest:main"
+openprotein-build-uniref = "openprotein.cli.build_uniref:main"
+openprotein-build-swissprot-index = "openprotein.cli.build_swissprot_index:main"
+openprotein-build-clustered-multimodal = "openprotein.cli.build_clustered_multimodal:main"
+openprotein-join-multimodal = "openprotein.cli.join_multimodal:main"
+openprotein-train-text-tokenizer = "openprotein.cli.train_text_tokenizer:main"
+openprotein-build-structure-index = "openprotein.cli.build_structure_index:main"
+openprotein-seal-evaluation = "openprotein.cli.seal_evaluation:main"
+openprotein-evaluate-proteingym = "openprotein.cli.evaluate_proteingym:main"
+openprotein-audit-checkpoint-delta = "openprotein.cli.audit_checkpoint_delta:main"
+openprotein-finalize-protected-geometry = "openprotein.cli.finalize_protected_geometry:main"
+openprotein-export-adapter = "openprotein.cli.export_adapter:main"
+openprotein-reconstruct-adapter = "openprotein.cli.reconstruct_adapter:main"
+openprotein-select-sequence-checkpoint = "openprotein.cli.select_sequence_checkpoint:main"
+openprotein-select-sequence-checkpoint-policy = "openprotein.cli.select_sequence_checkpoint_policy:main"
+openprotein-select-multimodal-checkpoint = "openprotein.cli.select_multimodal_checkpoint:main"
+openprotein-select-multimodal-checkpoint-policy = "openprotein.cli.select_multimodal_checkpoint_policy:main"
+openprotein-generate-annotation = "openprotein.cli.generate_annotation:main"
+openprotein-score-variants = "openprotein.cli.score_variants:main"
+openprotein-predict-geometry = "openprotein.cli.predict_geometry:main"
+openprotein-validate-sequence = "openprotein.cli.validate_sequence:main"
+openprotein-validate-text = "openprotein.cli.validate_text:main"
+openprotein-validate-structure = "openprotein.cli.validate_structure:main"
+openprotein-smoke = "openprotein.cli.smoke:main"
+openprotein-train = "openprotein.cli.train:main"
+openprotein-train-scratch = "openprotein.cli.train_scratch:main"
+openprotein-build-packed-sequences = "openprotein.cli.build_packed_sequences:main"
+openprotein-build-mgnify-packed = "openprotein.cli.build_mgnify_packed:main"
+openprotein-fetch-mgnify-hf = "openprotein.cli.fetch_mgnify_hf:main"
+openprotein-audit-homology = "openprotein.cli.audit_homology:main"
+openprotein-audit-temporal = "openprotein.cli.audit_temporal:main"
+openprotein-build-retrieval-stress = "openprotein.cli.build_retrieval_stress:main"
+openprotein-compare-retrieval = "openprotein.cli.compare_retrieval:main"
+openprotein-compare-retrieval-stress = "openprotein.cli.compare_retrieval_stress:main"
+openprotein-build-ec-benchmark = "openprotein.cli.build_ec_benchmark:main"
+openprotein-audit-ec-rdkit = "openprotein.cli.audit_ec_rdkit:main"
+openprotein-filter-ec-benchmark = "openprotein.cli.filter_ec_benchmark:main"
+openprotein-compare-ec-probes = "openprotein.cli.compare_ec_probes:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

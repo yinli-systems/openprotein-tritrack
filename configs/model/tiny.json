@@ -1,0 +1,23 @@
+{
+  "name": "openprotein-tiny",
+  "protein_backbone": {
+    "kind": "tiny",
+    "model_path": null,
+    "parameter_count": 0,
+    "vocab_size": 40,
+    "freeze": false
+  },
+  "hidden_size": 64,
+  "num_attention_heads": 4,
+  "num_bridge_layers": 2,
+  "intermediate_size": 128,
+  "text_vocab_size": 128,
+  "max_sequence_length": 64,
+  "max_text_length": 32,
+  "contrastive_dimension": 32,
+  "geometry_rank": 16,
+  "distance_bins": 8,
+  "dropout": 0.0,
+  "residual_scale": 0.5,
+  "tie_text_embeddings": true
+}

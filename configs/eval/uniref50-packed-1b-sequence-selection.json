@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "name": "uniref50-2026-02-official-ddp4-packed-1b-sequence-selection",
+  "track": "frozen_esmc_6b_trainable_adapter_control",
+  "required_pretrain_receipt": {
+    "status": "passed",
+    "evidence_level": "PRETRAIN",
+    "target_tokens": 1000000000,
+    "token_budget_reached": true
+  },
+  "candidate_steps": [
+    10000,
+    20000,
+    30000,
+    40000,
+    50000,
+    60000,
+    70000,
+    80000,
+    90000,
+    100000,
+    110000,
+    120000,
+    130000
+  ],
+  "include_non_milestone_final_checkpoint": false,
+  "evaluator": {
+    "source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/20c1ced0a1b08b3c6b9f6359a1cc0c01492d3759aed0a25ca67872945e3d47d2",
+    "source_snapshot_sha256": "20c1ced0a1b08b3c6b9f6359a1cc0c01492d3759aed0a25ca67872945e3d47d2",
+    "evaluation_code_sha256": "70d2fa601b71cd6cf357627f163a42253a276b90062d2bb94c60bb7a2e4aa4e5",
+    "validation_script_sha256": "5c663e88bcfc5f97bd50429081bb677c931e7597ef12be21727a89b32c9d8188",
+    "selection_code_sha256": "f958ed05a123f62093724b3374314628a179edc9b6696b874153f1cb4369e063",
+    "max_batches": 1000,
+    "sequence_length": 256,
+    "validation_glob": "/ssd/scxi253/pretraining2/data/processed/uniref50-2026_02/validation/*.csv",
+    "validation_file_sha256": "bc4427142cab6ccd356d247a0150af008041addb868a5fb4cf35e1f25be33eba",
+    "data_manifest": "/ssd/scxi253/pretraining2/data/processed/uniref50-2026_02/manifest.json",
+    "data_manifest_sha256": "be8cbb50fe6b8811f486b5cb9a2ad72f1018c9105d239734d70ca7deeef97530",
+    "model_config": "configs/model/openprotein-7b.json",
+    "model_artifact_manifest": "/ssd/scxi253/pretraining2/manifests/esmc-6b-local-snapshot.json",
+    "model_artifact_manifest_sha256": "20792ba95166b4c774ac7e73e5fb245814024a7b309b4b6be36f8245f599cb19",
+    "protein_tokenizer": "/ssd/scxi253/esmfold2/models/Biohub_ESMC-6B/tokenizer.json",
+    "protein_tokenizer_sha256": "8d3447b278176e65fb3ef0224472927bf5fee3be46ea2bd77fad0111423cee1f"
+  },
+  "selection": {
+    "primary_metric": "minimum_bridge_loss",
+    "tie_break": "earliest_checkpoint_step",
+    "exact_comparability_required": true
+  },
+  "test_data_policy": "forbidden",
+  "proteingym_rows_opened": false,
+  "claim_boundary": "Validation-only checkpoint selection for the frozen-backbone adapter control; never scratch-7B or frozen-benchmark evidence."
+}

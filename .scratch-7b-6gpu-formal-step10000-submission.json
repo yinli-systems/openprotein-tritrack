@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "submitted",
+  "evidence_level": "SCRATCH_6GPU_FORMAL_SEGMENT_SUBMISSION",
+  "created_at_utc": "2026-08-28T03:55:34Z",
+  "chain_id": "scratch-global-lr-v2-6gpu",
+  "training_job": {
+    "slurm_job_id": "1480297",
+    "initial_state": "PENDING",
+    "initial_reason": "Priority",
+    "initial_runtime": "00:00:00",
+    "world_size": 6,
+    "segment_start_step": 5000,
+    "segment_end_step": 10000,
+    "resume_checkpoint": "/ssd/scxi253/pretraining2/runs/scratch-7b-mgnify90-2024_04-formal-50b-global-lr-v2/checkpoints/step-00005000"
+  },
+  "audit_job": {
+    "slurm_job_id": "1480298",
+    "dependency": "afterok:1480297",
+    "initial_state": "PENDING",
+    "initial_reason": "Dependency",
+    "automatic_successor_submission": true
+  },
+  "frozen_source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/dae8d14ddc72c67acef413dfc3b426172ebe58d6f445247d4563dad81748f0d5",
+  "source_snapshot_sha256": "dae8d14ddc72c67acef413dfc3b426172ebe58d6f445247d4563dad81748f0d5",
+  "training_code_sha256": "e133b1a2d0fceae10a30c3e5d9f4a1d6f5152834d9eaf1fa481bd5eafa73cc5e",
+  "train_config_sha256": "9eeca35c25d5e50c6a90b31270d00a6b7ccd3e10bbacf30ef0201adeee6487e8",
+  "chain_policy_sha256": "0eec3b581b408f6916cedc50959ee73f08c32e3c67d24d511a2aca8ce5f66167",
+  "benchmark_selection_receipt_sha256": "16ef56355dac15664f9c362ac52f910227ec51465da1e5ed90a991e55a5c3d4a",
+  "claim_boundary": "Submission evidence only. The six-GPU segment is queued and has not started or completed at this receipt time; no model-quality claim is made.",
+  "test_data_accessed": false,
+  "proteingym_accessed": false
+}

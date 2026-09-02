@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "submitted",
+  "evidence_level": "SCRATCH_SEGMENT_AUDIT_REPAIR_SUBMISSION",
+  "created_at_utc": "2026-08-25T03:09:27Z",
+  "slurm_job_id": "1467456",
+  "completed_training_job_id": "1465137",
+  "segment_start_step": 0,
+  "segment_end_step": 5000,
+  "operations_source_snapshot_sha256": "f50f254cfb4d59c4bd82887f5c2f585e758da7b3b2f726691e03e6ddedb5a1d7",
+  "audit_sbatch_sha256": "c23002e9c256566fe1575956eca169d157308c33de7567523001707a1b274589",
+  "audit_script_sha256": "5c31dd7e182bf582716e31a8b5049c65bb0ae6e495f3c077e477efa5ee59986f",
+  "trainer_sbatch_sha256": "75e54dc169e896e14b205b155e338f0a96464a8ac24fd4fdaae1882560767d49",
+  "chain_policy_sha256": "fe41616bdd9f11c9ad6e0834af4be00a9cd8bdaa83bc274b85020abe2e3b42a3",
+  "supersedes_failed_audit_job_id": "1465237",
+  "claim_boundary": "Submission evidence only; audit and continuation remain unverified until job completion and immutable receipts exist."
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "predeclared",
+  "evidence_level": "SCRATCH_6GPU_FORMAL_CONTINUATION_POLICY",
+  "created_at_utc": "2026-08-28T03:54:04Z",
+  "chain_id": "scratch-global-lr-v2-6gpu",
+  "authorization": {
+    "user_instruction": "use six GPUs with the strongest measured training efficiency and start",
+    "supersedes_held_training_job_id": "1467474",
+    "supersedes_dependent_audit_job_id": "1467475",
+    "supersession_gate": "cancel the held eight-GPU chain only after both replacement jobs have valid Slurm IDs"
+  },
+  "benchmark_selection": {
+    "job_id": "1477051",
+    "selection_receipt": "/data/run01/scxi253/pretraining2-archive/receipts/scratch-7b-6gpu-lookahead-selection-job-1477051.json",
+    "selection_receipt_sha256": "16ef56355dac15664f9c362ac52f910227ec51465da1e5ed90a991e55a5c3d4a",
+    "selection_policy_sha256": "bf4cf95a9cb16094ddad6b841567b6bd55e51913254f9e1010d8deaa2aa5b39e",
+    "selected_batch_lookahead": 8192,
+    "selected_max_micro_batch_size": 384,
+    "selected_median_aggregate_tokens_per_second": 19316.627208726673,
+    "selected_p10_to_median_ratio": 0.9157340538253668,
+    "selected_mean_packing_efficiency": 0.9830754428379677,
+    "selected_peak_memory_mib": 26233.5009765625
+  },
+  "formal_training_contract": {
+    "model_parameters": 7065227297,
+    "world_size": 6,
+    "micro_batch_token_budget": 14563,
+    "gradient_accumulation_steps": 3,
+    "theoretical_global_token_capacity": 262134,
+    "batch_lookahead": 8192,
+    "max_micro_batch_size": 384,
+    "precision": "bf16",
+    "activation_checkpointing": true,
+    "fsdp_reshard_after_forward": true,
+    "target_tokens": 50000000000,
+    "learning_rate_schedule_end_step": 260000,
+    "segment_size_steps": 5000,
+    "first_replacement_segment_start_step": 5000,
+    "first_replacement_segment_end_step": 10000
+  },
+  "topology_migration_contract": {
+    "from_world_size": 8,
+    "to_world_size": 6,
+    "from_step": 5000,
+    "from_tokens": 1064746261,
+    "checkpoint": "/ssd/scxi253/pretraining2/runs/scratch-7b-mgnify90-2024_04-formal-50b-global-lr-v2/checkpoints/step-00005000",
+    "checkpoint_manifest_sha256": "77ffa37466a6461b51115a485e9ccf76bff371838d0e9dc12300e4cfac8f6f08",
+    "source_tree_sha256": "efb2df4391504bed59822a36972a2644d4c03e04800bbad4483a3549fa84aa91",
+    "training_code_sha256": "e4e2ed8b20be773618c40ce240193d7fa29f7d5e191490a7e9bc23613e172c84",
+    "train_config_sha256": "209e42f8a1a07f11c28dd49e2e40bc034d24b2f1511f41f97db28a5c3af0c235",
+    "data_cursor_policy": "exact_unconsumed_path_cursor_repartition",
+    "successor_resume_policy": "apply topology migration only to the eight-GPU source checkpoint; use normal exact six-GPU resume thereafter"
+  },
+  "frozen_implementation": {
+    "source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/dae8d14ddc72c67acef413dfc3b426172ebe58d6f445247d4563dad81748f0d5",
+    "source_snapshot_sha256": "dae8d14ddc72c67acef413dfc3b426172ebe58d6f445247d4563dad81748f0d5",
+    "training_code_sha256": "e133b1a2d0fceae10a30c3e5d9f4a1d6f5152834d9eaf1fa481bd5eafa73cc5e",
+    "config": "configs/scratch/train/mgnify90-2024_04-7b-single-node-5090-6gpu-b14563-ga3-window8192-maxb384-50b-global-lr-v2.json",
+    "config_sha256": "9eeca35c25d5e50c6a90b31270d00a6b7ccd3e10bbacf30ef0201adeee6487e8",
+    "trainer_sbatch_sha256": "b1e51d3823c373474b4bbbcce2eae41a796115ea633a46066e2316b8c3f2f901",
+    "audit_sbatch_sha256": "ff9e19f86a2b8d7469056531bdac4d9e972ac12cf8ae11df247c45c1ad0d0d38",
+    "audit_script_sha256": "625eee60474ffcd56160c54c41363ea3a33586710a9b607cb20adc7602ca055e"
+  },
+  "stable_artifacts": {
+    "data_manifest_sha256": "7640aa5a28defb5a371910dcd1e43720597a27c4c5fbc283a0bbac0721530db8",
+    "model_config_sha256": "e06e118856dcdbb383d06dc1e5a379bebddb64f6ecccb028735e725802256d9b",
+    "tokenizer_sha256": "e3136a88e8fe5f7d0cbb1c9f70a7c1089cbb5b7e3b1e6ff863a043301ef38b8f"
+  },
+  "gates": {
+    "remote_full_tests": "90 passed",
+    "immutable_snapshot_full_tests": "90 passed",
+    "benchmark_selection_status": "selected",
+    "topology_migration_probe_status": "passed",
+    "checkpoint_manifest_hash_reverified": true,
+    "source_snapshot_read_only": true
+  },
+  "claim_boundary": "Authorizes submission and automated checkpoint-bound continuation only. It is not evidence that a new six-GPU segment has started or completed, and it makes no validation or model-quality claim.",
+  "test_data_accessed": false,
+  "proteingym_access_permitted": false
+}
