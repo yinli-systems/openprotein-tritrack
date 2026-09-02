@@ -46,6 +46,7 @@ openprotein-select-sequence-checkpoint = "openprotein.cli.select_sequence_checkp
 openprotein-select-sequence-checkpoint-policy = "openprotein.cli.select_sequence_checkpoint_policy:main"
 openprotein-select-multimodal-checkpoint = "openprotein.cli.select_multimodal_checkpoint:main"
 openprotein-select-multimodal-checkpoint-policy = "openprotein.cli.select_multimodal_checkpoint_policy:main"
+openprotein-select-tritrack-batchcap = "openprotein.cli.select_tritrack_batchcap:main"
 openprotein-generate-annotation = "openprotein.cli.generate_annotation:main"
 openprotein-score-variants = "openprotein.cli.score_variants:main"
 openprotein-predict-geometry = "openprotein.cli.predict_geometry:main"

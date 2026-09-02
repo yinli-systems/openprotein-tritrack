@@ -9,9 +9,9 @@ build/
 dist/
 
 # Large or generated research artifacts never belong in Git.
-artifacts/
-checkpoints/
-data/
-runs/
-runtime/
-wandb/
+/artifacts/
+/checkpoints/
+/data/
+/runs/
+/runtime/
+/wandb/

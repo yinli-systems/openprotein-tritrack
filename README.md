@@ -25,7 +25,9 @@ other baseline.
   clearly stronger on same-pool sequence-text retrieval. See the exact metrics
   and limitations in [1B multimodal results](docs/MULTIMODAL_1B_RESULTS.md).
 - The 1.2B TriTrack successor has passed only a 10-step four-GPU
-  checkpoint/resume smoke. It has no quality claim yet.
+  checkpoint/resume smoke. Its cluster-disjoint data, six-GPU efficiency gate,
+  3B-token run, and validation requirements are frozen in the
+  [TriTrack formal contract](docs/TRITRACK_FORMAL.md). It has no quality claim yet.
 - The random-initialized 7B track reached step 5,000 and 1,064,746,261 tokens;
   it has not completed its pretraining target or established model quality.
 

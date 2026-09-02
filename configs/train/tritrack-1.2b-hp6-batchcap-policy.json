@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "world_size": 6,
+  "physical_gpu_memory_mib": 24564,
+  "minimum_headroom_fraction": 0.15,
+  "required_steps": 20,
+  "discard_initial_steps": 5,
+  "formal_target_tokens": 3000000000,
+  "selection_metric": "median aggregate tokens_per_second",
+  "candidates": [
+    {
+      "probe_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs12-probe.json",
+      "formal_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs12-3btoken.json"
+    },
+    {
+      "probe_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs16-probe.json",
+      "formal_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs16-3btoken.json"
+    },
+    {
+      "probe_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs20-probe.json",
+      "formal_config": "configs/train/tritrack-1.2b-hp6-seq512-mbs20-3btoken.json"
+    }
+  ]
+}
