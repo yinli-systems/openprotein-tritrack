@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "submitted",
+  "evidence_level": "VALIDATION_RECOVERY_SUBMISSION",
+  "created_at_utc": "2026-09-04T22:59:12Z",
+  "completed_pretraining_job": {
+    "job_id": "1543796",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "final_checkpoint": "/ssd/scxi253/pretraining2/runs/tritrack-1.2b-hp6-mbs16-3btoken/checkpoints/step-00082570",
+    "checkpoint_manifest_sha256": "caae9a297d258c71485373cd7e99ea30b83a6300c2fdbad8a2e83bb9bbfea440"
+  },
+  "failed_validation_job": {
+    "job_id": "1543797",
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "failed_stage": "text_validation",
+    "stderr_sha256": "d7126c65628b807177f1375d8bacce7ce7eb510c27b6948eb966e2c81586fce8",
+    "failure": "multi-positive contrastive validation batches omitted contrastive_group_ids"
+  },
+  "recovery": {
+    "job_id": "1555145",
+    "source_snapshot": "/ssd/scxi253/pretraining2/source-snapshots/088c59c7edddd08aa066e60cb4174d16e20e4f64e3ed2c2211d4b1678eae7f18",
+    "source_snapshot_sha256": "088c59c7edddd08aa066e60cb4174d16e20e4f64e3ed2c2211d4b1678eae7f18",
+    "base_source_snapshot_sha256": "0d20d46dd849e134f2f8a99d4e115042fe9964ebce6b5555e2f44b7aefebf421",
+    "fix_commit": "746f6b2",
+    "changed_source_files": [
+      "src/openprotein/data/streaming.py",
+      "tests/test_tokenizer_streaming.py"
+    ],
+    "streaming_code_sha256": "cde90dd04fcfe7a7226045a2fe8a69b6c81c8fb03c47cba61821b35c11b2deb7",
+    "scheduler_test_only_reference": "1555140",
+    "output_dir": "/ssd/scxi253/pretraining2/evaluations/tritrack-1.2b-hp6-3btoken-final-job1543796"
+  },
+  "selection_receipt": {
+    "path": "/ssd/scxi253/pretraining2/receipts/tritrack-hp6-batchcap-after-data-1543794.json",
+    "sha256": "f1feebd9031789373064cc2aadc9a84d288173dd500fcbad24d6e29dc5171ed7"
+  },
+  "verification": {
+    "local_tests": "123 passed, 1 skipped",
+    "remote_candidate_tests": "124 passed",
+    "immutable_snapshot_focused_tests": "16 passed",
+    "formal_config_sha256_unchanged": "e562592304f2b48b3361eed258499a667ac68c0a3b7b8b88ec71ca714ac59198"
+  },
+  "scope": {
+    "training_rerun": false,
+    "model_or_data_objective_changed": false,
+    "validation_only": true,
+    "test_data_accessed": false,
+    "proteingym_rows_opened": false
+  }
+}
