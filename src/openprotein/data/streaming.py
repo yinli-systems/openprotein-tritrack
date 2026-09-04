@@ -22,6 +22,12 @@ from openprotein.data.text_tokenizer import SentencePieceTextTokenizer
 from openprotein.data.tokenizer import EsmcTokenizer
 
 
+def _contrastive_group_id(text_group: object) -> int:
+    normalized = " ".join(str(text_group).casefold().split())
+    digest = hashlib.sha256(normalized.encode("utf-8")).digest()
+    return int.from_bytes(digest[:8], "big") & ((1 << 63) - 1)
+
+
 class CSVProteinStream(IterableDataset):
     """Stream CSV records with deterministic file/rank/worker ownership."""
 
@@ -244,6 +250,7 @@ class SequenceTextCollator:
         text = self.text_tokenizer.pad([example["text_input_ids"] for example in examples])
         text_labels = text["input_ids"].clone()
         text_labels.masked_fill_(~text["attention_mask"].to(torch.bool), -100)
+        group_ids = [_contrastive_group_id(example["text_group"]) for example in examples]
         return {
             "protein_input_ids": corrupted,
             "protein_attention_mask": protein["attention_mask"],
@@ -251,6 +258,7 @@ class SequenceTextCollator:
             "text_input_ids": text["input_ids"],
             "text_attention_mask": text["attention_mask"],
             "text_labels": text_labels,
+            "contrastive_group_ids": torch.tensor(group_ids, dtype=torch.long),
         }
 
 
@@ -646,11 +654,7 @@ class SequenceStructureTextCollator:
                 structure_label_mask[dropped] = structure_attention_mask[dropped]
                 structure_input_features[dropped] = 0.0
 
-        group_ids = []
-        for example in examples:
-            normalized = " ".join(str(example["text_group"]).casefold().split())
-            digest = hashlib.sha256(normalized.encode("utf-8")).digest()
-            group_ids.append(int.from_bytes(digest[:8], "big") & ((1 << 63) - 1))
+        group_ids = [_contrastive_group_id(example["text_group"]) for example in examples]
 
         return {
             "protein_input_ids": corrupted,

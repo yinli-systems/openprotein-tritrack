@@ -114,6 +114,16 @@ def test_multimodal_stream_and_collator_emit_both_supervision_paths(tmp_path):
         "text_input_ids",
         "text_attention_mask",
         "text_labels",
+        "contrastive_group_ids",
     }
     assert batch["protein_labels"].ne(-100).sum(dim=1).ge(1).all()
     assert torch.equal(batch["text_labels"].ne(-100), batch["text_attention_mask"].bool())
+    assert batch["contrastive_group_ids"].shape == (2,)
+    assert batch["contrastive_group_ids"].unique().numel() == 2
+
+    equivalent_examples = [dict(examples[0]), dict(examples[1])]
+    equivalent_examples[1]["text_group"] = "  KINASE  "
+    equivalent_batch = SequenceTextCollator(
+        protein_tokenizer, text_tokenizer, seed=5, mlm_probability=0.15
+    )(equivalent_examples)
+    assert equivalent_batch["contrastive_group_ids"].unique().numel() == 1
